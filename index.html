@@ -12,7 +12,7 @@
         .play_button{
             padding: 10px 20px;
             margin: 5px;
-            color: white;
+            color: black;
             border: none;
             border-radius: 5px;
             cursor: auto;
@@ -44,7 +44,11 @@
         var audiobtn1 = document.getElementById("btn1");
 
         function switch_audio() {
-            if (audio.paused || audio.ended) {
+            if (audio.paused) {
+                audio.play();
+                audiobtn1.textContent = "暂停";
+            } else if (audio.ended) {
+                audio.currentTime = 0;
                 audio.play();
                 audiobtn1.textContent = "暂停";
             } else {
@@ -61,7 +65,6 @@
                 audio.currentTime = 0;
                 audiobtn1.textContent = "播放";
             }
-
         }
     </script>
 </body>
