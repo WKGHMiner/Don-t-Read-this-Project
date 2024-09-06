@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>芝士网站</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <script type="text/JavaScript" src="./js/index.js"></script>
+
+    <style>
+        .play_button{
+            padding: 10px 20px;
+            margin: 5px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: auto;
+        }
+
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <audio id="audio1">
+        <source src="./audio/audio1.mp3" type="audio/mpeg">
+    </audio>
+
+    <h2>
+        女士们，先生们，大家好。我叫丁真，这是我的第一个网站。<br>
+        这个世界不但属于我，还属于我的动物朋友们。<br>
+    </h2>
+
+    <img src="./img/img1.png" width="400px" height="500px">
+    <div class="play_button">
+        <button id="btn1" onclick="switch_audio()">播放</button>
+        <button id="btn2" onclick="cease_audio()">终止</button>
+    </div>
+
+    <script>
+        var audio = document.getElementById("audio1");
+        var audiobtn1 = document.getElementById("btn1");
+
+        function switch_audio() {
+            if (audio.paused || audio.ended) {
+                audio.play();
+                audiobtn1.textContent = "暂停";
+            } else {
+                audio.pause();
+                audiobtn1.textContent = "播放";
+            }
+        }
+        
+        function cease_audio() {
+            if (audio.paused || audio.ended) {
+                audio.currentTime = 0;
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                audiobtn1.textContent = "播放";
+            }
+
+        }
+    </script>
+</body>
+</html>
